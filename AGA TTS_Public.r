@@ -77,7 +77,7 @@ head(CFDA_Finding_Data)
 #To aggregate this data further, we need to turn modified opinion and other findings into numeric values so that they can be summed. There is the option of using one Y to override all N, but this was done numerically since it gives more insight into the magnitude of the findings. In all cases, these can be treated as indicator variables as well, with any number greater than 0 representing a Y. A lack of findings in this instance is represented by a null value. We can then replace these with 0 to help with our numeric interpretation.
 
 CFDA_Finding_Data_to_merge<-CFDA_Finding_Data %>% mutate(modified_opinion=ifelse(MODIFIEDOPINION=="Y",1,0))
-CFDA_Finding_Data_to_merge<-CFDA_Finding_Data_to_merge %>% mutate(other_matters=ifelse(OTHER.MATTERS=="Y",1,0))
+CFDA_Finding_Data_to_merge<-CFDA_Finding_Data_to_merge %>% mutate(other_matters=ifelse('OTHER MATTERS'=="Y",1,0))
 CFDA_Finding_Data_to_merge<-CFDA_Finding_Data_to_merge %>% mutate(material_weakness=ifelse(MATERIALWEAKNESS=="Y",1,0))
 CFDA_Finding_Data_to_merge<-CFDA_Finding_Data_to_merge %>% mutate(significant_deficiency=ifelse(SIGNIFICANTDEFICIENCY=="Y",1,0))
 CFDA_Finding_Data_to_merge<-CFDA_Finding_Data_to_merge %>% mutate(other_findings=ifelse(OTHERFINDINGS=="Y",1,0))
