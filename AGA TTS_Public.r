@@ -94,7 +94,7 @@ CFDA_Finding_Data1<-CFDA_Finding_Data_to_merge %>% group_by(AUDITYEAR.x,DBKEY.x,
 
 #Combined merge from the general information level to include individual award and finding data. Rename is to make sure the result is able to be deciphered
 
-Combined_Data_Final<-left_join(CFDA_Finding_Data1,General_Info, by=c("AUDITYEAR"="AUDITYEAR","DBKEY.x"="DBKEY"))
+Combined_Data_Final<-left_join(CFDA_Finding_Data1,General_Info, by=c("AUDITYEAR.x"="AUDITYEAR","DBKEY.x"="DBKEY"))
 Combined_Data_Final<-rename(Combined_Data_Final,DBKEY=DBKEY.x)
 Combined_Data_Final<-rename(Combined_Data_Final,SIGNIFICANTDEFICIENCY="REPORTABLECONDITION/SIGNIFICANTDEFICIENCY")
 head(Combined_Data_Final)
